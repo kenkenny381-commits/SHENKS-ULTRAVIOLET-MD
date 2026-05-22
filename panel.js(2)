@@ -1,0 +1,121 @@
+module.exports = async (sock, m, command, args, from, isGroup, isOwner) => {
+    const prefix = process.env.PREFIX || '.'
+
+    if (!isOwner) return sock.sendMessage(from, { text: '❌ Owner only command.' }, { quoted: m })
+
+    if (command === 'cpanelmenu' || command === 'panel') {
+        let txt = `
+┏━━〔 CPANEL-CMD 〕━━━━━━━━━━━━━┓
+┃ ${prefix}setlink - Set panel URL
+┃ ${prefix}setkey - Set panel API key
+┃ ${prefix}nestconfig - Set nest/egg config
+┃ ${prefix}createuser - Create panel user
+┃ ${prefix}createpanel - Create server
+┃ ${prefix}createunlimited - Create unlimited server
+┃ ${prefix}setpayment - Set payment info
+┃ ${prefix}prompt - Send panel prompt
+┗━━━━━━━━━━━━━━━┛
+
+Usage: ${prefix}createuser username password email
+`
+        return sock.sendMessage(from, { text: txt }, { quoted: m })
+    }
+
+    if (command === 'setlink') {
+        if (!args[0]) return sock.sendMessage(from, { text: `Usage: ${prefix}setlink https://panel.domain.com` }, { quoted: m })
+        global.db.panel = global.db.panel || {}
+        global.db.panel.link = args[0]
+        return sock.sendMessage(from, { text: `✅ Panel link set to: ${args[0]}` }, { quoted: m })
+    }
+
+    if (command === 'setkey') {
+        if (!args[0]) return sock.sendMessage(from, { text: `Usage: ${prefix}setkey your-api-key` }, { quoted: m })
+        global.db.panel = global.db.panel || {}
+        global.db.panel.key = args[0]
+        return sock.sendMessage(from, { text: `✅ Panel API key saved.` }, { quoted: m })
+    }
+
+    if (command === 'createuser') {
+        let [user, pass, email] = args
+        if (!user ||!pass ||!email) return sock.sendMessage(from, { text: `Usage: ${prefix}createuser username password email` }, { quoted: m })
+
+        if (!global.db.panel?.link ||!global.db.panel?.key) {
+            return sock.sendMessage(from, { text: `❌ Set panel link and key first using ${prefix}setlink and ${prefix}setkey` }, { quoted: m })
+        }
+
+        try {
+            // Example using Pterodactyl API
+            const axios = require('axios')
+            let res = await axios.post(`${global.db.panel.link}/api/application/users`, {
+                email: email,
+                username: user,
+                first_name: user,
+                last_name: 'User',
+                password: pass
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${global.db.panel.key}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            return sock.sendMessage(from, { text: `✅ User created!\nUsername: ${user}\nEmail: ${email}` }, { quoted: m })
+        } catch (e) {
+            return sock.sendMessage(from, { text: `❌ Failed: ${e.response?.data?.errors?.[0]?.detail || e.message}` }, { quoted: m })
+        }
+    }
+
+    if (command === 'createpanel') {
+        let [user, name, ram, disk, cpu] = args
+        if (!user ||!name ||!ram ||!disk ||!cpu) {
+            return sock.sendMessage(from, { text: `Usage: ${prefix}createpanel username servername ram disk cpu\nExample: ${prefix}createpanel testuser mybot 1024 5000 50` }, { quoted: m })
+        }
+
+        if (!global.db.panel?.link ||!global.db.panel?.key) {
+            return sock.sendMessage(from, { text: `❌ Set panel link and key first` }, { quoted: m })
+        }
+
+        try {
+            const axios = require('axios')
+            // Get user ID first
+            let userRes = await axios.get(`${global.db.panel.link}/api/application/users?filter[username]=${user}`, {
+                headers: { 'Authorization': `Bearer ${global.db.panel.key}`, 'Accept': 'application/json' }
+            })
+
+            if (!userRes.data.length) return sock.sendMessage(from, { text: `❌ User not found. Create user first.` }, { quoted: m })
+
+            let userId = userRes.data[0].attributes.id
+
+            // Create server - adjust nest/egg/location IDs to match your panel
+            let serverRes = await axios.post(`${global.db.panel.link}/api/application/servers`, {
+                name: name,
+                user: userId,
+                egg: 15, // Change to your egg ID
+                docker_image: "ghcr.io/parkervcp/yolks:nodejs_18",
+                startup: "npm start",
+                environment: { INST: "npm", USER_UPLOAD: "0", AUTO_UPDATE: "0" },
+                limits: { memory: parseInt(ram), swap: 0, disk: parseInt(disk), io: 500, cpu: parseInt(cpu) },
+                feature_limits: { databases: 0, backups: 0, allocations: 1 },
+                deploy: { locations: [1], dedicated_ip: false, port_range: [] }
+            }, {
+                headers: { 'Authorization': `Bearer ${global.db.panel.key}`, 'Accept': 'application/json', 'Content-Type': 'application/json' }
+            })
+
+            return sock.sendMessage(from, { text: `✅ Server created!\nName: ${name}\nRAM: ${ram}MB\nDisk: ${disk}MB\nCPU: ${cpu}%` }, { quoted: m })
+        } catch (e) {
+            return sock.sendMessage(from, { text: `❌ Failed: ${e.response?.data?.errors?.[0]?.detail || e.message}` }, { quoted: m })
+        }
+    }
+
+    if (command === 'nestconfig') {
+        let txt = `Set your nest/egg/location IDs in the code:
+
+Line 60: egg: 15 // Your egg ID
+Line 67: locations: [1] // Your location ID
+Line 61: docker_image: "your docker image"
+
+Check these in your Pterodactyl panel > Nests > Egg > Configuration`
+        return sock.sendMessage(from, { text: txt }, { quoted: m })
+    }
+}
