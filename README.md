@@ -63,6 +63,38 @@ Professional WhatsApp Automation Bot with Multi Pairing Servers and Easy Deploym
 </p>
 
 ---
+---
+
+# 📥 Download Bot Files
+
+<p align="center">
+
+<a href="https://pair.shenks ultraviolet md.space/download">
+<img src="https://img.shields.io/badge/DOWNLOAD%20BOT-00ff88?style=for-the-badge&logo=download"/>
+</a>
+
+</p>
+
+⚠️ **Note**
+
+This download provides a **direct ZIP file**.
+
+GitHub downloads usually place the files inside a folder which the tutorial video does not explain how to rearrange.
+
+Using the ZIP avoids this issue.
+
+---
+
+# 🎥 Tutorials
+
+### Pairing Tutorial  
+https://youtube.com/shorts/oi1Er4M2gbY
+
+### Deploy on Pterodactyl Panel  
+https://youtube.com/shorts/Ds-hn6jYij8
+
+### Deploy on CypherX Platform  
+https://youtu.be/lMheAzhjd24?si=8-vcXJLCrD0djKRB
 
 # 📷 QR Scan Servers
 
@@ -80,5 +112,5 @@ Professional WhatsApp Automation Bot with Multi Pairing Servers and Easy Deploym
 <join group="https://chat.whatsapp.com/BBg9DuAn5rF6HbyFxW31eF">
 <join chanel="https://whatsapp.com/channel/0029VbDRwJQ35fM1LT2UmH3C">
 
-#download bot files
-<p aline="center"
+
+
