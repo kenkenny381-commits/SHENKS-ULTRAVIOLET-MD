@@ -79,3 +79,6 @@ Professional WhatsApp Automation Bot with Multi Pairing Servers and Easy Deploym
 <a href="https://pair3.cshenks ultrabot.space/scan">
 <join group="https://chat.whatsapp.com/BBg9DuAn5rF6HbyFxW31eF">
 <join chanel="https://whatsapp.com/channel/0029VbDRwJQ35fM1LT2UmH3C">
+
+#download bot files
+<p aline="center"
