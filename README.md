@@ -1,6 +1,6 @@
 <h1 align="center">
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=600&lines=shenks ultra+BOT;WhatsApp+Automation+System;Multi+Pair+Servers;Easy+Deployment"/>
-</h1>
+</h1> "https://i.ibb.co/qY67zd0Z/3ddefa36cfe5.jpg"
 
 <p align="center">
 <img src="https://files.catbox.moe/qvj2m0.jpg
@@ -93,8 +93,7 @@ https://youtube.com/shorts/oi1Er4M2gbY
 ### Deploy on Pterodactyl Panel  
 https://youtube.com/shorts/Ds-hn6jYij8
 
-### Deploy on CypherX Platform  
-https://youtu.be/lMheAzhjd24?si=8-vcXJLCrD0djKRB
+### Deploy on shenks ultra#
 
 # 📷 QR Scan Servers
 
