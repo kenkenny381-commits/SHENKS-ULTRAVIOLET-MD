@@ -1,6 +1,12 @@
 <h1 align="center">
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=600&lines=shenks ultra+BOT;WhatsApp+Automation+System;Multi+Pair+Servers;Easy+Deployment"/>
-</h1> "https://i.ibb.co/qY67zd0Z/3ddefa36cfe5.jpg"
+</h1> src
+
+<p align="center">
+  <a href="https://your-link-here.com">
+    <img src="https://i.ibb.co/qY67zd0Z/3ddefa36cfe5.jpg" alt="Shenks Ultra"/>
+  </a>
+</p>
 
 <p align="center">
 <img src="https://files.catbox.moe/qvj2m0.jpg
