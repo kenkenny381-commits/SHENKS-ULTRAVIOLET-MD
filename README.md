@@ -2,12 +2,21 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=600&lines=shenks ultra+BOT;WhatsApp+Automation+System;Multi+Pair+Servers;Easy+Deployment"/>
 </h1> src
 
-<p align="center">
-  <video width="800" autoplay loop muted playsinline>
-    <source src="./assets/dragon_fly.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
+### Choose Your Element 🐉
+<table>
+<tr>
+<td align="center"><b>Purple</b><br>
+<video src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/purple_dragon_15s.mp4" width="280" autoplay loop muted playsinline></video></td>
+<td align="center"><b>Red Fire</b><br>
+<video src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/red_dragon_15s.mp4" width="280" autoplay loop muted playsinline></video></td>
+</tr>
+<tr>
+<td align="center"><b>Green Venom</b><br>
+<video src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/green_dragon_15s.mp4" width="280" autoplay loop muted playsinline></video></td>
+<td align="center"><b>Ice Blue</b><br>
+<video src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/assets/iceblue_dragon_15s.mp4" width="280" autoplay loop muted playsinline></video></td>
+</tr>
+</table>
 <h1 align="center">Shenks Ultra</h1>
 
 <p align="center">
